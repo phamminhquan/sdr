@@ -65,17 +65,20 @@ int main() {
   //std::cout << buf1 << std::endl;
 
   // Test circular buffer
+  std::cout << "Test circular buffer" << std::endl;
   CircularBuffer<double> cir_buf1(12);
   bool push_test = cir_buf1.push(buf1);
   if (push_test == true) { std::cout << "Push successful" << std::endl; }
-  else { std::cout << "Push Not Successful" << std::endl; }
+  else { std::cout << "Push not successful" << std::endl; }
   
   // printing individual elements
+  std::cout << "Print individual elements" << std::endl;
   for (size_t i=0; i<cir_buf1.size(); i++) {
     std::cout << cir_buf1[i] << std::endl;
   }
   
   // check inline functions
+  std::cout << "Check byteslen(), bytesFree() inline functions" << std::endl;
   std::cout << "BytesLen: " << cir_buf1.bytesLen() << std::endl;
   std::cout << "BytesFree: " << cir_buf1.bytesFree() << std::endl;
 
@@ -83,6 +86,7 @@ int main() {
   //std::cout << cir_buf1 << std::endl;
 
   // test pull
+  std::cout << "Testing pull method" << std::endl;
   Buffer<double> buf2(2);
   bool pull_test = cir_buf1.pull(buf2, 2);
   if (pull_test == true) { std::cout << "Pull successuful" << std::endl; }
@@ -94,6 +98,7 @@ int main() {
   std::cout << "BytesFree: " << cir_buf1.bytesFree() << std::endl;
 
   // test drop
+  std::cout << "Test drop method" << std::endl;
   cir_buf1.drop(1);
   for (size_t i=0; i<cir_buf1.size(); i++) {
     std::cout << cir_buf1[i] << std::endl;
@@ -102,6 +107,7 @@ int main() {
   std::cout << "BytesFree: " << cir_buf1.bytesFree() << std::endl;
 
   // test resize
+  std::cout << "Test resize method" << std::endl;
   cir_buf1.resize(8);
   for (size_t i=0; i<cir_buf1.size(); i++) {
     std::cout << cir_buf1[i] << std::endl;
